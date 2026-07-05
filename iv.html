@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>수액안내 | 오산시민의원</title>
+<meta name="description" content="오산시민의원 영양수액 · 웰빙 프로그램 안내 — 영양수액, 비타민수액, 웰빙주사, 기타수액, 예방접종. 조합원가 · 비조합원가 안내." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="styles.css" />
+
+<!-- ═══════════ 수액안내 전용 스타일 ═══════════ -->
+<style>
+  .iv-intro{max-width:760px;margin:0 auto 46px;text-align:center;}
+  .price-legend{
+    display:flex;justify-content:center;flex-wrap:wrap;gap:14px 28px;
+    margin:0 auto 40px;font-size:.9rem;color:var(--muted);
+  }
+  .price-legend span{display:inline-flex;align-items:center;gap:8px;}
+  .price-legend .dot{width:11px;height:11px;border-radius:50%;flex:0 0 auto;}
+  .dot-mem{background:var(--brass);}
+  .dot-non{background:var(--sage);opacity:.55;}
+
+  .price-card{
+    background:#fff;border:1px solid var(--line);border-radius:4px;
+    overflow:hidden;margin-bottom:26px;
+    box-shadow:0 18px 40px -34px rgba(21,39,32,.4);
+  }
+  .pc-head{
+    display:grid;grid-template-columns:1.15fr 2.1fr .85fr .85fr;align-items:center;
+    background:var(--pine);color:var(--ivory);padding:16px 26px;gap:10px;
+  }
+  .pc-head h3{
+    grid-column:1 / 3;
+    font-family:var(--serif);font-weight:800;font-size:1.22rem;letter-spacing:.01em;color:var(--ivory);
+  }
+  .pc-cols{display:contents;}
+  .pc-head .pc-cols span{
+    font-family:var(--lat);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;
+    text-align:right;color:var(--brass-soft);
+  }
+  .pc-head .pc-cols span.kr{font-family:var(--sans);font-size:.82rem;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.82);}
+
+  .prow{
+    display:grid;grid-template-columns:1.15fr 2.1fr .85fr .85fr;align-items:center;gap:10px;
+    padding:16px 26px;border-top:1px solid var(--line);
+  }
+  .prow:first-of-type{border-top:none;}
+  .prow .pname{font-family:var(--serif);font-weight:700;color:var(--pine);font-size:1.04rem;}
+  .prow .pdesc{color:var(--muted);font-size:.92rem;}
+  .prow .pmem{text-align:right;font-weight:700;color:var(--brass);font-size:1.02rem;letter-spacing:.01em;}
+  .prow .pnon{text-align:right;color:var(--muted);font-size:.98rem;}
+  .prow .pmem::after{content:"원";font-size:.72em;font-weight:500;margin-left:2px;color:var(--brass-soft);}
+  .prow .pnon::after{content:"원";font-size:.72em;margin-left:2px;opacity:.7;}
+  .prow:hover{background:var(--ivory);}
+
+  .iv-note{
+    max-width:760px;margin:6px auto 0;text-align:center;
+    color:var(--muted);font-size:.92rem;
+  }
+  .iv-note .star{color:var(--brass);font-weight:700;font-size:1.05rem;letter-spacing:.04em;display:block;margin-bottom:8px;font-family:var(--serif);}
+
+  /* ── 모바일 ── */
+  @media (max-width:720px){
+    .pc-head{grid-template-columns:1fr auto auto;padding:14px 18px;}
+    .pc-head h3{grid-column:1 / -1;margin-bottom:2px;}
+    .pc-head .pc-cols span{min-width:74px;}
+    .prow{grid-template-columns:1fr auto auto;padding:16px 18px;column-gap:12px;}
+    .prow .pname{grid-column:1 / -1;}
+    .prow .pdesc{grid-column:1 / -1;margin:-4px 0 8px;}
+    .prow .pmem,.prow .pnon{min-width:74px;}
+    .prow .pmem::before{content:"조합원 ";font-size:.7rem;font-weight:500;color:var(--sage);}
+    .prow .pnon::before{content:"일반 ";font-size:.7rem;color:var(--sage);}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<header class="nav" id="nav">
+  <a class="brand" href="index.html">
+    <img class="logo-mark" src="images/logo.png" alt="오산시민의원 로고" />
+    <span class="brand-name">오산시민의원</span>
+  </a>
+  <nav class="navlinks" id="menu">
+    <a href="index.html#about">병원소개</a>
+    <a href="staff.html">의료진</a>
+    <a href="treatment.html">진료안내</a>
+    <a href="manual.html">도수치료</a>
+    <a href="iv.html">수액안내</a>
+    <a href="equipment.html">장비</a>
+    <a href="index.html#visit">오시는길</a>
+    <a class="nav-cta" href="tel:031-378-6402">진료예약 031-378-6402</a>
+  </nav>
+  <div class="burger" id="burger" aria-label="메뉴"><span></span><span></span><span></span></div>
+</header>
+
+<!-- ═══════════ 서브 히어로 ═══════════ -->
+<section class="subhero">
+  <div class="subhero-inner">
+    <span class="eyebrow">Nutrition &amp; Wellness</span>
+    <h1>영양수액 · 웰빙 프로그램</h1>
+    <p>일상의 피로 회복부터 면역 · 미용 · 예방까지, 목적에 맞춰 안내해 드립니다.</p>
+    <div class="crumb"><a href="index.html">홈</a> &nbsp;/&nbsp; 수액안내</div>
+  </div>
+</section>
+
+<!-- ═══════════ 수액 · 프로그램 안내 ═══════════ -->
+<section id="iv-menu">
+  <div class="wrap">
+    <div class="head-block reveal" style="text-align:center;margin-bottom:36px;">
+      <span class="klabel">Price Guide</span>
+      <h2 class="sec-title">프로그램 안내</h2>
+    </div>
+
+    <div class="price-legend reveal">
+      <span><i class="dot dot-mem"></i>조합원가 — 생협 조합원 가격</span>
+      <span><i class="dot dot-non"></i>비조합원가 — 일반 가격</span>
+    </div>
+
+    <!-- 영양 수액 -->
+    <div class="price-card reveal">
+      <div class="pc-head">
+        <h3>영양 수액</h3>
+        <div class="pc-cols"><span>조합원가</span><span>비조합원가</span></div>
+      </div>
+      <div class="prow"><div class="pname">고급 프리미엄</div><div class="pdesc">만성피로 · 면역력 증가 · 노화 방지 · 뇌기능 회복</div><div class="pmem">100,000</div><div class="pnon">150,000</div></div>
+      <div class="prow"><div class="pname">프리미엄</div><div class="pdesc">만성피로 · 면역력 증가 · 노화 방지</div><div class="pmem">50,000</div><div class="pnon">70,000</div></div>
+      <div class="prow"><div class="pname">일반</div><div class="pdesc">만성피로 · 면역력 증가</div><div class="pmem">30,000</div><div class="pnon">50,000</div></div>
+    </div>
+
+    <!-- 비타민 수액 -->
+    <div class="price-card reveal">
+      <div class="pc-head">
+        <h3>비타민 수액</h3>
+        <div class="pc-cols"><span>조합원가</span><span>비조합원가</span></div>
+      </div>
+      <div class="prow"><div class="pname">프리미엄</div><div class="pdesc">비타민 보충 · 노화 방지</div><div class="pmem">30,000</div><div class="pnon">50,000</div></div>
+      <div class="prow"><div class="pname">일반</div><div class="pdesc">만성피로</div><div class="pmem">20,000</div><div class="pnon">35,000</div></div>
+    </div>
+
+    <!-- 웰빙 주사 -->
+    <div class="price-card reveal">
+      <div class="pc-head">
+        <h3>웰빙 주사</h3>
+        <div class="pc-cols"><span>조합원가</span><span>비조합원가</span></div>
+      </div>
+      <div class="prow"><div class="pname">마늘 + 비타민</div><div class="pdesc">신진대사 증진 · 피로 회복 · 노화 방지</div><div class="pmem">40,000</div><div class="pnon">60,000</div></div>
+      <div class="prow"><div class="pname">백옥 주사</div><div class="pdesc">미백 효과 · 피부 개선</div><div class="pmem">30,000</div><div class="pnon">50,000</div></div>
+      <div class="prow"><div class="pname">신데렐라</div><div class="pdesc">체지방 감소 · 항산화 작용</div><div class="pmem">25,000</div><div class="pnon">40,000</div></div>
+      <div class="prow"><div class="pname">비타민D 주사</div><div class="pdesc">골다공증 예방 · 뼈 건강</div><div class="pmem">25,000</div><div class="pnon">40,000</div></div>
+      <div class="prow"><div class="pname">태반 주사</div><div class="pdesc">갱년기 장애 개선 · 노화 방지</div><div class="pmem">15,000</div><div class="pnon">30,000</div></div>
+    </div>
+
+    <!-- 기타 수액 -->
+    <div class="price-card reveal">
+      <div class="pc-head">
+        <h3>기타 수액</h3>
+        <div class="pc-cols"><span>조합원가</span><span>비조합원가</span></div>
+      </div>
+      <div class="prow"><div class="pname">해열진통수액</div><div class="pdesc">감기 몸살</div><div class="pmem">25,000</div><div class="pnon">40,000</div></div>
+      <div class="prow"><div class="pname">혈액순환제</div><div class="pdesc">뇌혈관 개선</div><div class="pmem">20,000</div><div class="pnon">35,000</div></div>
+    </div>
+
+    <!-- 예방접종 -->
+    <div class="price-card reveal">
+      <div class="pc-head">
+        <h3>예방접종</h3>
+        <div class="pc-cols"><span>조합원가</span><span>비조합원가</span></div>
+      </div>
+      <div class="prow"><div class="pname">자궁경부암</div><div class="pdesc">가다실 9가 (3회 접종 시)</div><div class="pmem">540,000</div><div class="pnon">600,000</div></div>
+      <div class="prow"><div class="pname">대상포진</div><div class="pdesc">스카이조스타 (1회 접종)</div><div class="pmem">130,000</div><div class="pnon">180,000</div></div>
+      <div class="prow"><div class="pname">대상포진</div><div class="pdesc">싱그릭스 (2회 접종 시)</div><div class="pmem">440,000</div><div class="pnon">480,000</div></div>
+      <div class="prow"><div class="pname">폐렴구균</div><div class="pdesc">박스뉴반스15</div><div class="pmem">95,000</div><div class="pnon">130,000</div></div>
+    </div>
+
+    <p class="iv-note reveal">
+      <span class="star">※ 원장님과 상담하세요 ※</span>
+      개인의 건강 상태에 따라 적합한 프로그램이 다를 수 있습니다. 자세한 내용은 방문 또는 전화로 문의해 주세요.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-band">
+  <div class="wrap">
+    <span class="klabel" style="color:var(--brass-soft)">Reservation</span>
+    <h2 class="sec-title">상담 · 예약 안내</h2>
+    <p>전화로 편하게 문의 · 예약하실 수 있습니다.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="tel:031-378-6402">전화 문의 031-378-6402</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="foot-brand">
+        <img class="logo-mark" src="images/logo.png" alt="오산시민의원 로고" />
+        <span class="brand-name">오산시민의원</span>
+      </div>
+      <p>일반진료 · 물리치료 · 도수치료</p>
+      <p>통증의 근본을 보는 진료로, 다시 편안한 일상을 되찾아 드립니다.</p>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <p><a href="tel:031-378-6402">전화 031-378-6402</a></p>
+      <p>경기 오산시 오산로 235 메디타워</p>
+      <p>우편번호 18137</p>
+    </div>
+    <div>
+      <h5>Reservation</h5>
+      <p>전화로 예약하세요.</p>
+      <div class="foot-btns">
+        <a href="https://map.naver.com/p/entry/place/37213180" target="_blank" rel="noopener">네이버 지도</a>
+        <a href="tel:031-378-6402">전화 예약</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap"><div class="copy">© 2026 오산시민의원. All rights reserved.</div></div>
+</footer>
+
+<nav class="mobar">
+  <a href="tel:031-378-6402">전화</a>
+  <a href="index.html#visit">오시는 길</a>
+  <a class="hi" href="tel:031-378-6402">예약</a>
+</nav>
+
+<script>
+  const nav=document.getElementById('nav');
+  const onScroll=()=>{nav.classList.toggle('solid',window.scrollY>60);};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+  burger.addEventListener('click',()=>menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.16});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
